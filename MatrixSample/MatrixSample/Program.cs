@@ -7,14 +7,51 @@ namespace MatrixSample
     {
         static void Main(string[] args)
         {
-            Matrix3x3 mat1 = new Matrix3x3(1f, 2f, 3f,
-                                           4f, 5f, 6f,
-                                           7f, 8f, 9f);
-            Matrix3x3 mat2 = new Matrix3x3(1f, 2f, 3f,
-                                           4f, 5f, 6f,
-                                           7f, 8f, 9f);
+            Matrix3x3 translation = new Matrix3x3(1f, 0f, 0f,
+                                                  0f, 1f, 0f,
+                                                  2f, 3f, 1f);
+            Matrix3x3 scale = new Matrix3x3(1f, 3f, 0f,
+                                            1f, 2f, 0f,
+                                            0f, 0f, 1f);
+            float rag = MathF.PI * 0.5f;
+            Matrix3x3 rotation = new Matrix3x3(MathF.Cos(rag), -MathF.Sin(rag), 0,
+                                               MathF.Sin(rag), MathF.Cos(rag), 0,
+                                               0,              0,              1);
 
-            Console.WriteLine(Matrix3x3.Multiply(mat1, mat2).Text);
+            //Console.WriteLine("\n Vector");
+            //Vector3 vec = new Vector3(1, 1, 1);
+            //// Vector * 変換行列
+            //Vector3 printV = vec;
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    printV = Matrix3x3.Multiply(printV, rotation);
+            //    Console.WriteLine(printV.Text + "\n");
+            //}
+
+            Console.WriteLine("\n 階層構造");
+            Vector3 parentPos = new Vector3(1, 1, 1);
+
+            Matrix3x3 parentMat = Matrix3x3.Identity;
+            Matrix3x3 chaild1Mat = new Matrix3x3(1, 0, 0,
+                                                 0, 1, 0,
+                                                 0, -1, 1);
+            Matrix3x3 chaild2Mat = new Matrix3x3(1, 0, 0,
+                                                 0, 1, 0,
+                                                 0, -1, 1);
+
+            parentMat = Matrix3x3.Multiply(parentMat, rotation);
+
+            //chaild1Mat = Matrix3x3.Multiply(chaild1Mat, rotation);
+            chaild1Mat = Matrix3x3.Multiply(chaild1Mat, parentMat);
+
+            chaild2Mat = Matrix3x3.Multiply(chaild2Mat, chaild1Mat);
+
+            Console.WriteLine("親  ：" + Matrix3x3.Multiply(parentPos, parentMat).Text + "\n");
+            Console.WriteLine("子１：" + Matrix3x3.Multiply(parentPos, chaild1Mat).Text + "\n");
+            Console.WriteLine("子２：" + Matrix3x3.Multiply(parentPos, chaild2Mat).Text + "\n");
+            //Console.WriteLine("親  ：" + parentMat.Text + "\n");
+            //Console.WriteLine("子１：" + chaild1Mat.Text + "\n");
+            //Console.WriteLine("子２：" + chaild2Mat.Text + "\n");
         }
     }
 

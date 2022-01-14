@@ -1,5 +1,6 @@
-/obj/
-/bin/
+/[Oo]bj/
+/[Bb]in/
 
 *.sln
 *.csproj
+*.vs

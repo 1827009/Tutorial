@@ -11,6 +11,8 @@ namespace MatrixSample.Tutorial.Matrix
         public float z;
         public static Vector3 ZERO = new Vector3(0, 0, 0);
 
+        public String Text { get { return x + ",\t" + y + ",\t" + z; } }
+
         public Vector3(float x, float y, float z)
         {
             this.x = x;
@@ -37,6 +39,8 @@ namespace MatrixSample.Tutorial.Matrix
         public float x;
         public float y;
         public static Vector2 ZERO = new Vector2(0, 0);
+
+        public String Text { get { return x + ",\t" + y; } }
 
         public Vector2(float x, float y)
         {

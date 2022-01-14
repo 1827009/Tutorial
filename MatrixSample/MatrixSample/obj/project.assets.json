@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mitsuhiro\\source\\repos\\MatrixSample\\MatrixSample\\MatrixSample.csproj",
+      "projectUniqueName": "C:\\Users\\Mitsuhiro\\Documents\\kensyuu\\Project\\MyFolder\\MatrixSample\\MatrixSample\\MatrixSample.csproj",
       "projectName": "MatrixSample",
-      "projectPath": "C:\\Users\\Mitsuhiro\\source\\repos\\MatrixSample\\MatrixSample\\MatrixSample.csproj",
+      "projectPath": "C:\\Users\\Mitsuhiro\\Documents\\kensyuu\\Project\\MyFolder\\MatrixSample\\MatrixSample\\MatrixSample.csproj",
       "packagesPath": "C:\\Users\\Mitsuhiro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mitsuhiro\\source\\repos\\MatrixSample\\MatrixSample\\obj\\",
+      "outputPath": "C:\\Users\\Mitsuhiro\\Documents\\kensyuu\\Project\\MyFolder\\MatrixSample\\MatrixSample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
