@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using MatrixSample.Tutorial.Matrix;
 
-namespace DirtyFragSample.MyFolder
+namespace Tutorial
 {
     class ParticlePool
     {
-        private static const int POOL_SIZE = 100;
+        private static int POOL_SIZE = 100;
         private Particle[] particles_;
 
         private Particle firstAvailable_;

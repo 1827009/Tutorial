@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
+using MatrixSample.Tutorial.Matrix;
 
-namespace DirtyFragSample.MyFolder
+namespace Tutorial
 {
     class Particle
     {
@@ -41,7 +42,7 @@ namespace DirtyFragSample.MyFolder
 
 
     }
-    public struct Positions
+    struct Positions
     {
         public Vector3 position_;
         public Vector3 positionVel_;
