@@ -30,9 +30,8 @@ namespace MatrixSample
             //}
 
             Console.WriteLine("\n 階層構造");
-            var parentPos = new Vector3(0, -1, 1);
+            var parentPos = new Vector2(0, 0);
             Matrix3x3 parentMat = Matrix3x3.Identity;
-
             Matrix3x3 chaild1Mat = new Matrix3x3(1, 0, 0,
                                                  0, 1, 0,
                                                  0, -1, 1);
@@ -41,18 +40,52 @@ namespace MatrixSample
                                                  0, -1, 1);
 
             parentMat = parentMat * rotation;
-
             chaild1Mat = chaild1Mat * parentMat;
-
             chaild2Mat = chaild2Mat * chaild1Mat;
 
-            Console.WriteLine("親  ：" + Matrix3x3.Multiply(parentPos, parentMat).Text + "\n");
-            Console.WriteLine("子１：" + Matrix3x3.Multiply(parentPos, chaild1Mat).Text + "\n");
-            Console.WriteLine("子２：" + Matrix3x3.Multiply(parentPos, chaild2Mat).Text + "\n");
-            Console.WriteLine("親  ：\n" + parentMat.Text + "\n");
-            Console.WriteLine("子１：\n" + chaild1Mat.Text + "\n");
-            Console.WriteLine("子２：\n" + chaild2Mat.Text + "\n");
+            var pPos = Matrix3x3.Multiply(parentPos, parentMat);
+            var c1Pos = Matrix3x3.Multiply(parentPos, chaild1Mat);
+            var c2Pos = Matrix3x3.Multiply(parentPos, chaild2Mat);
+
+            Console.WriteLine("親  ：" + pPos.Text + "\n");
+            Console.WriteLine("子１：" + c1Pos.Text + "\n");
+            Console.WriteLine("子２：" + c2Pos.Text + "\n");
+            //Console.WriteLine("それぞれの変換行列");
+            //Console.WriteLine("親  ：\n" + parentMat.Text + "\n");
+            //Console.WriteLine("子１：\n" + chaild1Mat.Text + "\n");
+            //Console.WriteLine("子２：\n" + chaild2Mat.Text + "\n");
+
+            const int NO = 5;
+            Console.Write("  ");
+            for (int j = -NO; j < NO; j++)
+            {
+                Console.Write("{0,2:d}", j);
+            }
+            for (int i = NO; i > -NO; i--)
+            {
+                Console.Write("{0,2:d}", i);
+                for (int j = -NO; j < NO; j++)
+                {
+                    if (j == (int)MathF.Round(pPos.x) && i == (int)MathF.Round(pPos.y))
+                        Console.Write("Ｐ");
+                    else if (j == (int)MathF.Round(c1Pos.x) && i == (int)MathF.Round(c1Pos.y))
+                        Console.Write("C1");
+                    else if (j == (int)MathF.Round(c2Pos.x) && i == (int)MathF.Round(c2Pos.y))
+                        Console.Write("C2");
+                    else
+                        Console.Write("　");
+                }
+                Console.WriteLine();
+            }
         }
+        /*float About(float v)
+        {
+            if (MathF.Abs(v) % 1 < 0.01f)
+                return MathF.Floor(v);
+            else if (MathF.Abs(v) % 1 > 0.99f)
+                return MathF.Ceiling(v);
+            return v;
+        }*/
     }
 
 }
