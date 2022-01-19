@@ -47,8 +47,8 @@ namespace MatrixSample
             chaild2Mat = chaild2Mat * chaild1Mat;
 
             Console.WriteLine("親  ：" + Matrix3x3.Multiply(parentPos, parentMat).Text + "\n");
-            Console.WriteLine("子１：" + Matrix3x3.Multiply(new Vector3(0,-1, 1), chaild1Mat).Text + "\n");
-            Console.WriteLine("子２：" + Matrix3x3.Multiply(new Vector3(0, -2, 1), chaild2Mat).Text + "\n");
+            Console.WriteLine("子１：" + Matrix3x3.Multiply(parentPos, chaild1Mat).Text + "\n");
+            Console.WriteLine("子２：" + Matrix3x3.Multiply(parentPos, chaild2Mat).Text + "\n");
             Console.WriteLine("親  ：\n" + parentMat.Text + "\n");
             Console.WriteLine("子１：\n" + chaild1Mat.Text + "\n");
             Console.WriteLine("子２：\n" + chaild2Mat.Text + "\n");

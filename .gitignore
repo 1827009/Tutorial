@@ -1,6 +1,6 @@
-/[Oo]bj/
-/[Bb]in/
+*obj/
+*bin/
+*.vs
 
 *.sln
 *.csproj
-*.vs
