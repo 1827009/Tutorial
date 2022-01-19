@@ -34,14 +34,14 @@ namespace MatrixSample
             Matrix3x3 parentMat = Matrix3x3.Identity;
             Matrix3x3 chaild1Mat = new Matrix3x3(1, 0, 0,
                                                  0, 1, 0,
-                                                 0, -1, 1);
+                                                 0, -5, 1);
             Matrix3x3 chaild2Mat = new Matrix3x3(1, 0, 0,
                                                  0, 1, 0,
-                                                 0, -1, 1);
+                                                 0, -5, 1);
 
-            parentMat = parentMat * rotation;
-            chaild1Mat = chaild1Mat * parentMat;
-            chaild2Mat = chaild2Mat * chaild1Mat;
+            parentMat = parentMat;
+            chaild1Mat = chaild1Mat * rotation * parentMat;
+            chaild2Mat = chaild2Mat * rotation * chaild1Mat;
 
             var pPos = Matrix3x3.Multiply(parentPos, parentMat);
             var c1Pos = Matrix3x3.Multiply(parentPos, chaild1Mat);
@@ -55,25 +55,25 @@ namespace MatrixSample
             //Console.WriteLine("子１：\n" + chaild1Mat.Text + "\n");
             //Console.WriteLine("子２：\n" + chaild2Mat.Text + "\n");
 
-            const int NO = 5;
+            const int NO = 20;
             Console.Write("  ");
             for (int j = -NO; j < NO; j++)
             {
-                Console.Write("{0,2:d}", j);
+                Console.Write("{0,3:d}", j);
             }
             for (int i = NO; i > -NO; i--)
             {
-                Console.Write("{0,2:d}", i);
+                Console.Write("{0,3:d}", i);
                 for (int j = -NO; j < NO; j++)
                 {
                     if (j == (int)MathF.Round(pPos.x) && i == (int)MathF.Round(pPos.y))
-                        Console.Write("Ｐ");
+                        Console.Write("Ｐ ");
                     else if (j == (int)MathF.Round(c1Pos.x) && i == (int)MathF.Round(c1Pos.y))
-                        Console.Write("C1");
+                        Console.Write("C1 ");
                     else if (j == (int)MathF.Round(c2Pos.x) && i == (int)MathF.Round(c2Pos.y))
-                        Console.Write("C2");
+                        Console.Write("C2 ");
                     else
-                        Console.Write("　");
+                        Console.Write("　 ");
                 }
                 Console.WriteLine();
             }
