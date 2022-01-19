@@ -14,7 +14,7 @@ namespace MatrixSample
                                             1f, 2f, 0f,
                                             0f, 0f, 1f);
             float rag = MathF.PI * 0.5f;
-            Matrix3x3 rotation = new Matrix3x3(MathF.Cos(rag), MathF.Sin(-rag), 0,
+            Matrix3x3 rotation = new Matrix3x3(MathF.Cos(rag), -MathF.Sin(rag), 0,
                                                MathF.Sin(rag), MathF.Cos(rag), 0,
                                                0,              0,              1);
             Console.WriteLine(rotation.Text);
