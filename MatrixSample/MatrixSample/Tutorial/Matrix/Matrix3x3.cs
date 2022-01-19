@@ -73,7 +73,8 @@ namespace MatrixSample.Tutorial.Matrix
         public Vector2 Translation
         {
             get { return new Vector2(this.M31, this.M32); }
-            set {
+            set
+            {
                 M31 = value.x;
                 M32 = value.y;
             }
@@ -132,19 +133,32 @@ namespace MatrixSample.Tutorial.Matrix
         public static Vector3 Multiply(Vector3 vector, Matrix3x3 conversion)
         {
             Vector3 output;
-            output.x = conversion.M11 * vector.x + conversion.M12 * vector.y + conversion.M13 * vector.z;
-            output.y = conversion.M21 * vector.x + conversion.M22 * vector.y + conversion.M23 * vector.z;
-            output.z = conversion.M31 * vector.x + conversion.M32 * vector.y + conversion.M33 * vector.z;
+            output.x = vector.x * conversion.M11 + vector.y * conversion.M21 + vector.z * conversion.M31;
+            output.y = vector.x * conversion.M12 + vector.y * conversion.M22 + vector.z * conversion.M32;
+            output.z = vector.x * conversion.M13 + vector.y * conversion.M23 + vector.z * conversion.M33;
 
             return output;
         }
         public static Vector2 Multiply(Vector2 vector, Matrix3x3 conversion)
         {
             Vector2 output;
-            output.x = conversion.M11 * vector.x + conversion.M12 * vector.y + conversion.M13;
-            output.y = conversion.M21 * vector.x + conversion.M22 * vector.y + conversion.M23;
+            output.x = vector.x * conversion.M11 + vector.y * conversion.M21 + conversion.M31;
+            output.y = vector.x * conversion.M12 + vector.y * conversion.M22 + conversion.M32;
 
             return output;
+        }
+
+        public static Matrix3x3 operator *(Matrix3x3 matrix1, Matrix3x3 matrix2)
+        {
+            return Multiply(matrix1, matrix2);
+        }
+        public static Vector3 operator *(Vector3 vector, Matrix3x3 conversion)
+        {
+            return Multiply(vector, conversion);
+        }
+        public static Vector2 operator *(Vector2 vector, Matrix3x3 conversion)
+        {
+            return Multiply(vector, conversion);
         }
     }
 }
