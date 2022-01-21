@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{7FDE027C-5551-42B1-A64A-DB8497AD8AB4}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSampleContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-02-07T18:00:43.182267+09:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

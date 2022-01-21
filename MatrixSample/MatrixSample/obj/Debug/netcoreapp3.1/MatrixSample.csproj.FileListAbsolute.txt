@@ -1,0 +1,14 @@
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.csproj.AssemblyReference.cache
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.AssemblyInfoInputs.cache
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.AssemblyInfo.cs
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.csproj.CoreCompileInputs.cache
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.exe
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.deps.json
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.runtimeconfig.json
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.runtimeconfig.dev.json
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.dll
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\bin\Debug\netcoreapp3.1\MatrixSample.pdb
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.dll
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.pdb
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\MatrixSample\MatrixSample\obj\Debug\netcoreapp3.1\MatrixSample.genruntimeconfig.cache
