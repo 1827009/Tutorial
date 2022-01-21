@@ -1,4 +1,4 @@
-# **MatrixとdirtyFlagの練習
+# MatrixとdirtyFlagの練習
 
 dirtyFragを覚えようと思ったら、Unityで言う親子関係の変形が必要になったのでMatrixから覚えることにしました。
 
