@@ -33,6 +33,8 @@ Matrixは3d空間なら4x4の16個の数値で構成された情報です。今�
 前述の通り親のMatrixが変更されたとき、子のMatrixに親のを掛けてやるとその変更に対していい感じに調整されてくれます。そのMatrixをさらに子にかけてやると…としていくと、
 肩から指先まできれいに位置を計算できます。
 
+[Contribution guidelines for this project](https://github.com/1827009/Tutorial/blob/1153547c6977cf8de67eecf6392f8188cfee38eb/OpusSample/OpusSample/OpusSample/Tutorial/Matrix/Matrix3x3.cs)
+
 ## DirtyFlagについて
 
 DirtyFlagは軽量化の技術の一つで、アクションゲーム等では常にものに対して更新がかかり、そのたびに位置を計算するのは割と計算リソースが持っていかれます。そんな場面とかで使うのがDirtyFlagです。
@@ -43,4 +45,6 @@ Dirty(汚れる)の名の通り、現在の情報が古くなる(変更が加わ
 
 ## アルゴリズム
 
+Matrixに変更を加える際、セッタでdirtyFlagを建て、親から子へ更新処理を再帰呼び出しすることで実現しています。
 
+更新メソッドの引数フラグを渡し、親か自分のFlagが建っている場合に更新処理を行います。
