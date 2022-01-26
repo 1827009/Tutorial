@@ -1,6 +1,8 @@
-# MatrixとDirtyFlagの練習
+# MatrixとDirtyFlagの練習。と、オブジェクトプールの練習
 
 dirtyFragを覚えようと思ったら、サンプルが行列計算を用いていたのでMatrixから覚えることにしました。使用言語はC#です。
+
+追加でオブジェクトプールもやってみてます。
 
 覚えたてほやほやのメモみたいなものです。
 
@@ -129,3 +131,79 @@ Matrixに変更を加える際、セッタでdirtyFlagを建て、描画時に�
 ```
 
 あとはゲームループの描画メソッドに親のrenderを自身のフラグを入れれば更新してくれます。
+
+# オブジェクトプール
+
+前述の二つとは関連性は特にないです。追加で勉強した部分のメモ書きです。
+
+さて、オブジェクトプールとは何かですが、
+
+- 簡単に言えば無尽蔵に増えていく物体などを使用する際、何の制限も設けなければどこかでメモリをオーバーする
+
+- 小さいメモリを確保し、それが解放され、そこの前後のメモリが埋まっているとき、隙間が小さすぎてほとんどデータが入らず、メモリの無駄になる場面
+
+に対応するアルゴリズムです。
+
+- [Particle.cs](OpusSample/OpusSample/OpusSample/Tutorial/Particle/Particle.cs)
+- [ParticlePool.cs](OpusSample/OpusSample/OpusSample/Tutorial/Particle/ParticlePool.cs)
+
+## アルゴリズム
+
+配列を用いて先にメモリを確保しちゃおう、というに尽きます。ただし、メモリの参照を常に保持するのでガベージコレクションが機能しづらかったり、破棄をしっかりしておかないとエラーが出ます。
+
+```
+        public ParticlePool() {
+            // 配列を作成
+            particles_ = new Particle[POOL_SIZE];
+            for (int i = 0; i < POOL_SIZE; i++)
+            {
+                particles_[i] = new Particle();
+            }
+
+
+            firstAvailable_ = particles_[0];
+            for (int i = 0; i < POOL_SIZE-1; i++)
+            {
+                particles_[i].unionParticle.particle = particles_[i + 1];
+            }
+            particles_[POOL_SIZE - 1].unionParticle.particle = null;
+        }
+```
+今回はパーティクルに使用し、一定までしかパーティクルを生成しないようにする、既存のパーティクルが消え次第、そこのメモリにパーティクルを再生させるという風にしています。
+
+firstAvailable_に常に使われているメモリの先端の要素を割り当て、パーティクルを再生する際はそのメモリに再生しています。
+
+firstAvailable_がすでにパーティクルが再生しているメモリ、またはIndexの外の場合に生成を止めています。
+```
+        public void create(Vector3 pos, Vector3 posVal, int lifetime)
+        {
+            // 足りなくなったらErrorを出す
+            //Debug.Assert(firstAvailable_ != null);
+
+            // 足りなくなったらparticleを生成しない
+            if (firstAvailable_ != null)
+            {
+                // 空になっているリストの先を指定
+                Particle newParticle = firstAvailable_;
+                firstAvailable_ = newParticle.unionParticle.particle;
+
+                newParticle.init(pos, posVal, lifetime);
+            }
+        }
+        
+        public void animate(Microsoft.Xna.Framework.GameTime time)
+        {
+            for (int i = 0; i < POOL_SIZE; i++)
+            {
+                // particleが死んだら
+                if (particles_[i].animate(time))
+                {
+                    // 空にして、そこを空になっている先頭と記憶する
+                    particles_[i].unionParticle.particle = firstAvailable_;
+                    firstAvailable_ = particles_[i];
+
+                    Console.WriteLine("今の先頭index：" + i);
+                }
+            }
+        }
+```
