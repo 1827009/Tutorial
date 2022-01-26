@@ -16,6 +16,7 @@ namespace Tutorial
         private Particle firstAvailable_;
 
         public ParticlePool() {
+            // リストを作成
             particles_ = new Particle[POOL_SIZE];
             for (int i = 0; i < POOL_SIZE; i++)
             {
@@ -40,14 +41,18 @@ namespace Tutorial
             newParticle.init(pos, posVal, lifetime);
         }
 
-        public void animate()
+        public void animate(Microsoft.Xna.Framework.GameTime time)
         {
             for (int i = 0; i < POOL_SIZE; i++)
             {
-                if (particles_[i].animate())
+                // particleが死んだら
+                if (particles_[i].animate(time))
                 {
+                    // 空にして、そこを空になっている先頭と記憶する
                     particles_[i].posOrParticle.particle = firstAvailable_;
                     firstAvailable_ = particles_[i];
+
+                    Console.WriteLine("今の先頭index：" + i);
                 }
             }
         }

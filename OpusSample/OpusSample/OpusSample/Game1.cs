@@ -22,10 +22,14 @@ namespace OpusSample
         SpriteBatch spriteBatch;
         BasicEffect effect;
 
+        // dirtyFlagサンプル
         MeshGraphNode mesh1;
         MeshGraphNode mesh2;
         MeshGraphNode mesh3;
         MeshGraphNode mesh4;
+
+        // オブジェクトプールサンプル
+        ParticlePool particlePool;
 
         public Game1()
         {
@@ -51,6 +55,8 @@ namespace OpusSample
             mesh3.Local = new MeshTransform(Tutorial.Vector.Vector2.CreateTrancerate(new Tutorial.Vector.Vector2(0, -0.1f)));
             mesh4 = new MeshGraphNode(mesh3);
             mesh4.Local = new MeshTransform(Tutorial.Vector.Vector2.CreateTrancerate(new Tutorial.Vector.Vector2(0, -0.1f)));
+
+            particlePool = new ParticlePool();
 
             base.Initialize();
         }
@@ -109,6 +115,12 @@ namespace OpusSample
                 mesh4.GetLocal().positionMatrix *= Matrix3x3.CreateRotation((float)Math.PI / 180 * (90 * (float)gameTime.ElapsedGameTime.TotalSeconds));
             }
 
+
+            if (InputManager.IsKeyDown(Keys.Space))
+            {
+                particlePool.create(Tutorial.Vector.Vector3.ZERO, Tutorial.Vector.Vector3.UP, 1);
+            }
+
             base.Update(gameTime);
         }
         
@@ -121,6 +133,8 @@ namespace OpusSample
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             mesh1.render(MeshTransform.origin, mesh1.Dirty);
+
+            particlePool.animate(gameTime);
 
             // TODO: ここに描画コードを追加します。
             foreach (var pass in effect.CurrentTechnique.Passes)

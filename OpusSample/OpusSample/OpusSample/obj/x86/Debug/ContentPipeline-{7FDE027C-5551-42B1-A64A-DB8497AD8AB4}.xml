@@ -8,10 +8,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSampleContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSampleContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

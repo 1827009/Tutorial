@@ -11,6 +11,7 @@ namespace Tutorial.Vector
         public float y;
         public float z;
         public static Vector3 ZERO = new Vector3(0, 0, 0);
+        public static Vector3 UP = new Vector3(0, 1, 0);
 
         public String Text { get { return x + ",\t" + y + ",\t" + z; } }
 
@@ -32,6 +33,22 @@ namespace Tutorial.Vector
             output.x = a.x + b.x;
             output.y = a.y + b.y;
             output.z = a.z + b.z;
+            return output;
+        }
+        public static Vector3 operator *(Vector3 a, Vector3 b)
+        {
+            Vector3 output;
+            output.x = a.x * b.x;
+            output.y = a.y * b.y;
+            output.z = a.z * b.z;
+            return output;
+        }
+        public static Vector3 operator *(Vector3 a, float b)
+        {
+            Vector3 output;
+            output.x = a.x * b;
+            output.y = a.y * b;
+            output.z = a.z * b;
             return output;
         }
 

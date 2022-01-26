@@ -57,5 +57,10 @@ namespace Tutorial
                 1
             );
         }
+
+        public void Destroy()
+        {
+            Game1.DrawingEvent -= this.Draw;
+        }
     }
 }

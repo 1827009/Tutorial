@@ -180,5 +180,21 @@ namespace Tutorial.Matrix
                 0, 0, 1
                 );
         }
+        public static Matrix3x3 CreateTrancerate(Vector2 vec)
+        {
+            return new Matrix3x3(
+                1, 0, 0,
+                0, 1, 0,
+                vec.x, vec.y, 1
+                );
+        }
+        public static Matrix3x3 CreateTrancerate(Vector3 vec)
+        {
+            return new Matrix3x3(
+                1, 0, 0,
+                0, 1, 0,
+                vec.x, vec.y, 1
+                );
+        }
     }
 }

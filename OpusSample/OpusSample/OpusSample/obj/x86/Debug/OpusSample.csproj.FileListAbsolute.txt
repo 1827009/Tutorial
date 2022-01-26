@@ -4,3 +4,9 @@ C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\O
 C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\obj\x86\Debug\OpusSample.exe
 C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSample\obj\x86\Debug\OpusSample.pdb
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\bin\x86\Debug\OpusSample.exe
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\bin\x86\Debug\OpusSample.pdb
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\obj\x86\Debug\OpusSample.csprojResolveAssemblyReference.cache
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\obj\x86\Debug\OpusSample.exe
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSample\obj\x86\Debug\OpusSample.pdb

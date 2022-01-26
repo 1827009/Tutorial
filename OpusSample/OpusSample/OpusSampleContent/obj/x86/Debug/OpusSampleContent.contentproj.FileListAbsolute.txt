@@ -1,1 +1,2 @@
 C:\Users\Mitsuhiro\Documents\Visual Studio 2010\Projects\OpusSample\OpusSample\OpusSampleContent\obj\x86\Debug\OpusSampleContent.contentprojResolveAssemblyReference.cache
+C:\Users\Mitsuhiro\Documents\kensyuu\Project\MyFolder\OpusSample\OpusSample\OpusSampleContent\obj\x86\Debug\OpusSampleContent.contentprojResolveAssemblyReference.cache
