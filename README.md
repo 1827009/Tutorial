@@ -198,7 +198,7 @@ firstAvailable_がすでにパーティクルが再生しているメモリ、�
                 // particleが死んだら
                 if (particles_[i].animate(time))
                 {
-                    // 空にして、そこを空になっている先頭と記憶する
+                    // 空にして、そこを先頭と記憶する
                     particles_[i].unionParticle.particle = firstAvailable_;
                     firstAvailable_ = particles_[i];
 
