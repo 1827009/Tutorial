@@ -12,14 +12,12 @@ https://www.amazon.co.jp/dp/B015R0M8W0/ref=dp-kindle-redirect?_encoding=UTF8&btk
 
 ## Matrixについて
 
-まず、Matrix(和名:行列)で出来ることとは、
-
-人が肩を回すと肘が動く、肘が動くと手が動くのような、ものがくっついているものと一緒に動く挙動を数学的にいい感じに行ってくれるものです。
+まず、Matrix(和名:行列)で出来ることは、人が肩を回すと肘が動く、肘が動くと手が動くのような、ものがくっついているものと一緒に動く挙動を数学的にいい感じに行ってくれるものです。
 Unityなどではこの関係を親子と言い、肩が肘の親、肘が手の親といった呼び方がされます。
 
 各部位がそれぞれMatrixを持っており、そこにはその部位の親に対しての位置、回転、大きさの情報が一つのMatrixに入っています。
 
-[Matrix3x3.cs](https://github.com/1827009/Tutorial/blob/1153547c6977cf8de67eecf6392f8188cfee38eb/OpusSample/OpusSample/OpusSample/Tutorial/Matrix/Matrix3x3.cs)
+- [Matrix3x3.cs](https://github.com/1827009/Tutorial/blob/1153547c6977cf8de67eecf6392f8188cfee38eb/OpusSample/OpusSample/OpusSample/Tutorial/Matrix/Matrix3x3.cs)
 
 ### 計算方法
 
@@ -51,7 +49,7 @@ Dirty(汚れる)の名の通り、現在の情報が古くなる(変更が加わ
 
 今回のサンプルはMatrixの親子構造で、肩が更新されたら指先まですべて更新されるが、肘を更新されても肩は更新されないといったアルゴリズムです。
 
-[MeshGraphNode.cs](https://github.com/1827009/Tutorial/blob/06fc3e6b3ef6dfb4926fc92a241681306ea3a61c/OpusSample/OpusSample/OpusSample/Tutorial/DirtyMesh/MeshGraphNode.cs)
+- [MeshGraphNode.cs](https://github.com/1827009/Tutorial/blob/06fc3e6b3ef6dfb4926fc92a241681306ea3a61c/OpusSample/OpusSample/OpusSample/Tutorial/DirtyMesh/MeshGraphNode.cs)
 
 ## アルゴリズム
 
