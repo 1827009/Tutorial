@@ -47,7 +47,7 @@ Dirty(汚れる)の名の通り、現在の情報が古くなる(変更が加わ
 
 といった、計算個所の重複が起きなくなる利点もあります。
 
-今回のサンプルはMatrixの親子構造で、肩が更新されたら指先まですべて更新されるが、肘を更新されても肩は更新されないといったアルゴリズムです。
+今回のサンプルはMatrixの親子構造で、肩が更新されたら指先まですべて更新されるが、肘を更新されても肩は更新されないといったシステムです。
 
 - [MeshGraphNode.cs](https://github.com/1827009/Tutorial/blob/06fc3e6b3ef6dfb4926fc92a241681306ea3a61c/OpusSample/OpusSample/OpusSample/Tutorial/DirtyMesh/MeshGraphNode.cs)
 
