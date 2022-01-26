@@ -1,4 +1,4 @@
-# MatrixとdirtyFlagの練習
+# MatrixとDirtyFlagの練習
 
 dirtyFragを覚えようと思ったら、サンプルが行列計算を用いていたのでMatrixから覚えることにしました。
 
