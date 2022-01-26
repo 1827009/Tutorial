@@ -30,6 +30,29 @@ Matrixは3d空間なら4x4の16個の数値で構成された情報です。今�
 この大量の数値を計算と言われても、となりますが、Matrixは普通に数学なのでググってみるとより詳しい解説がたくさん乗っています。
 計算順などが心底覚えずらかったので調べましょう。理解を深められればプログラム上でまとめてしまえるので常に思い出す必要がなくなるのは幸いです。
 
+```
+
+// 掛け算
+        public static Matrix3x3 Multiply(Matrix3x3 matrix1, Matrix3x3 matrix2)
+        {
+            Matrix3x3 output;
+            output.M11 = (matrix1.M11 * matrix2.M11) + (matrix1.M12 * matrix2.M21) + (matrix1.M13 * matrix2.M31);
+            output.M12 = (matrix1.M11 * matrix2.M12) + (matrix1.M12 * matrix2.M22) + (matrix1.M13 * matrix2.M32);
+            output.M13 = (matrix1.M11 * matrix2.M13) + (matrix1.M12 * matrix2.M23) + (matrix1.M13 * matrix2.M33);
+
+            output.M21 = (matrix1.M21 * matrix2.M11) + (matrix1.M22 * matrix2.M21) + (matrix1.M23 * matrix2.M31);
+            output.M22 = (matrix1.M21 * matrix2.M12) + (matrix1.M22 * matrix2.M22) + (matrix1.M23 * matrix2.M32);
+            output.M23 = (matrix1.M21 * matrix2.M13) + (matrix1.M22 * matrix2.M23) + (matrix1.M23 * matrix2.M33);
+
+            output.M31 = (matrix1.M31 * matrix2.M11) + (matrix1.M32 * matrix2.M21) + (matrix1.M33 * matrix2.M31);
+            output.M32 = (matrix1.M31 * matrix2.M12) + (matrix1.M32 * matrix2.M22) + (matrix1.M33 * matrix2.M32);
+            output.M33 = (matrix1.M31 * matrix2.M13) + (matrix1.M32 * matrix2.M23) + (matrix1.M33 * matrix2.M33);
+
+            return output;
+        }
+        
+```
+
 前述の通り親のMatrixが変更されたとき、子のMatrixに親のを掛けてやるとその変更に対していい感じに調整されてくれます。そのMatrixをさらに子にかけてやると…としていくと、
 肩から指先まできれいに位置を計算できます。
 
@@ -54,7 +77,44 @@ Dirty(汚れる)の名の通り、現在の情報が古くなる(変更が加わ
 ## アルゴリズム
 
 Matrixに変更を加える際、セッタでdirtyFlagを建て、描画時に親から子へ更新処理を再帰呼び出しすることで実現しています。
+```
+        /// <summary>
+        /// 更新フラグを立てつつ変更
+        /// </summary>
+        public MeshTransform Local
+        {
+            get { return local_; }
+            set
+            {
+                local_ = value;
+                dirty_ = true;
+            }
+        }
+```
 
 更新メソッドの引数で親のフラグを渡し、子の更新メソッドでは親か自分のFlagが建っている場合に計算を行います。そこから子の更新メソッドにフラグを渡し…と末端まで更新していく構造です。
+```
+        public void render(MeshTransform parentWorld, bool dirty)
+        {
+            //親か子がオンなら
+            dirty |= dirty_;
+            if (dirty)
+            {
+                // 計算
+                world_ = local_.combine(parentWorld);
+                dirty_ = false;
 
-各物体の親に対するMatrixのほかに、計算結果Matrixを保存して更新がかからなかった場合にはそれを表示をしています。そのため、フラグは一番最初はオンで開始して計算させます。
+                mesh.VertexUpdate(world_.positionMatrix);
+            }
+
+            // 子の更新確認
+            for (int i = 0; i < children_.Count; i++)
+            {
+                children_[i].render(world_, dirty);
+            }
+        }
+```
+各物体の親に対するMatrixのほかに、計算結果Matrixをworld_に保存して更新がかからなかった場合にはそれを表示をしています。そのため、フラグは宣言時点でオンで開始して計算させます。
+```
+        private bool dirty_ = true;
+```
