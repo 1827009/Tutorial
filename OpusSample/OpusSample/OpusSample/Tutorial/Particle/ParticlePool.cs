@@ -23,22 +23,29 @@ namespace Tutorial
                 particles_[i] = new Particle();
             }
 
+
             firstAvailable_ = particles_[0];
             for (int i = 0; i < POOL_SIZE-1; i++)
             {
-                particles_[i].posOrParticle.particle = particles_[i + 1];
+                particles_[i].unionParticle.particle = particles_[i + 1];
             }
-            particles_[POOL_SIZE - 1].posOrParticle.particle = null;
+            particles_[POOL_SIZE - 1].unionParticle.particle = null;
         }
 
         public void create(Vector3 pos, Vector3 posVal, int lifetime)
         {
-            Debug.Assert(firstAvailable_ != null);
+            // 足りなくなったらErrorを出す
+            //Debug.Assert(firstAvailable_ != null);
 
-            Particle newParticle = firstAvailable_;
-            firstAvailable_ = newParticle.posOrParticle.particle;
+            // 足りなくなったらparticleを生成しない
+            if (firstAvailable_ != null)
+            {
+                // 空になっているリストの先を指定
+                Particle newParticle = firstAvailable_;
+                firstAvailable_ = newParticle.unionParticle.particle;
 
-            newParticle.init(pos, posVal, lifetime);
+                newParticle.init(pos, posVal, lifetime);
+            }
         }
 
         public void animate(Microsoft.Xna.Framework.GameTime time)
@@ -49,7 +56,7 @@ namespace Tutorial
                 if (particles_[i].animate(time))
                 {
                     // 空にして、そこを空になっている先頭と記憶する
-                    particles_[i].posOrParticle.particle = firstAvailable_;
+                    particles_[i].unionParticle.particle = firstAvailable_;
                     firstAvailable_ = particles_[i];
 
                     Console.WriteLine("今の先頭index：" + i);

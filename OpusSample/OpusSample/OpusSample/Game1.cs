@@ -118,7 +118,7 @@ namespace OpusSample
 
             if (InputManager.IsKeyDown(Keys.Space))
             {
-                particlePool.create(Tutorial.Vector.Vector3.ZERO, Tutorial.Vector.Vector3.UP, 1);
+                particlePool.create(new Tutorial.Vector.Vector3(0.5f, 0.5f, 1), Tutorial.Vector.Vector3.UP, 2);
             }
 
             base.Update(gameTime);
