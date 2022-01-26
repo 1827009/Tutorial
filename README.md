@@ -42,7 +42,6 @@ public Matrix3x3(float m11, float m12, float m13,
 計算順などが心底覚えずらかったので調べましょう。理解を深められればプログラム上でまとめてしまえるので常に思い出す必要がなくなるのは幸いです。
 
 ```
-
 // 掛け算
         public static Matrix3x3 Multiply(Matrix3x3 matrix1, Matrix3x3 matrix2)
         {
@@ -60,8 +59,7 @@ public Matrix3x3(float m11, float m12, float m13,
             output.M33 = (matrix1.M31 * matrix2.M13) + (matrix1.M32 * matrix2.M23) + (matrix1.M33 * matrix2.M33);
 
             return output;
-        }
-        
+        }        
 ```
 
 前述の通り親のMatrixが変更されたとき、子のMatrixに親のを掛けてやるとその変更に対していい感じに調整されてくれます。そのMatrixをさらに子にかけてやると…としていくと、
@@ -90,7 +88,7 @@ Dirty(汚れる)の名の通り、現在の情報が古くなる(変更が加わ
 Matrixに変更を加える際、セッタでdirtyFlagを建て、描画時に親から子へ更新処理を再帰呼び出しすることで実現しています。
 ```
         /// <summary>
-        /// 更新フラグを立てつつ変更
+        /// プロパティで更新フラグを立てつつ変更
         /// </summary>
         public MeshTransform Local
         {
@@ -118,7 +116,7 @@ Matrixに変更を加える際、セッタでdirtyFlagを建て、描画時に�
                 mesh.VertexUpdate(world_.positionMatrix);
             }
 
-            // 子の更新確認
+            // 子の更新確認へ
             for (int i = 0; i < children_.Count; i++)
             {
                 children_[i].render(world_, dirty);
@@ -129,3 +127,5 @@ Matrixに変更を加える際、セッタでdirtyFlagを建て、描画時に�
 ```
         private bool dirty_ = true;
 ```
+
+あとはゲームループの描画メソッドに親のrenderを自身のフラグを入れれば更新してくれます。
